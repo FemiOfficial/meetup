@@ -1,0 +1,15 @@
+.update-profile-header{
+    text-align: center;
+}
+
+mat-card{
+    margin: 0;
+    padding:0;
+    text-align: left;
+  }
+  .profile-content {
+    width: 100%;
+  }
+  mat-form-field {
+    width: 100%;
+  }

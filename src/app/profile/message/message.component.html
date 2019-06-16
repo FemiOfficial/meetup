@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Send Message </h1>
+<mat-divider></mat-divider>
+<br>
+<form (submit)="sendMessage()" #f="ngForm">
+        <div mat-dialog-content>
+            <mat-form-field>
+                <mat-label>To</mat-label>
+                <input matInput 
+                [readonly]="!editable" 
+                placeholder="From" 
+                [value]="data.recipient_name"
+                >
+            </mat-form-field>
+            <mat-form-field hintLabel="Max 200 characters">
+                <mat-label>Message</mat-label>
+                <textarea matInput maxlength="200"
+                name="message"  
+                 [(ngModel)]="message.message"
+                 required>
+                </textarea>
+            </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+    <button mat-raised-button [disabled]="!f.valid" color="primary" type="submit" cdkFocusInitial>Send</button>
+    </div>
+
+</form>

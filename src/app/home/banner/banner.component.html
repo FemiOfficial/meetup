@@ -1,0 +1,119 @@
+<!-- banner -->
+<div class="banner" id="home">
+    <div class="layer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 banner-text-w3pvt">
+            <!-- banner slider-->
+            <div class="csslider infinity" id="slider1">
+              <input type="radio" name="slides" checked="checked" id="slides_1" />
+              <input type="radio" name="slides" id="slides_2" />
+              <input type="radio" name="slides" id="slides_3" />
+              <ul class="banner_slide_bg">
+                <li>
+                  <div class="container-fluid">
+                    <div class="w3ls_banner_txt">
+                      <h3 class="b-w3ltxt text-capitalize mt-md-4">Get Connected</h3>
+                      <h4 class="b-w3ltxt text-capitalize mt-md-2">With Senior Experts</h4>
+                      <p class="w3ls_pvt-title my-3">Meet-Up Career connects senior experts / experienced professionals
+                         to junior colleagues that need support.</p>
+                      <a href="#about" class="btn btn-banner my-3">Read More</a>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="container-fluid">
+                    <div class="w3ls_banner_txt">
+                      <h3 class="b-w3ltxt text-capitalize mt-md-4">Are You an </h3>
+                      <h4 class="b-w3ltxt text-capitalize mt-md-2">Upcoming Researcher?</h4>
+                      <p class="w3ls_pvt-title my-3">Meet-up Career helps organize mentorship meetings with senior researchers</p>
+                      <a href="#about" class="btn btn-banner my-3">Read More</a>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="container-fluid">
+                    <div class="w3ls_banner_txt">
+                      <h3 class="b-w3ltxt text-capitalize mt-md-4">Are you A</h3>
+                      <h4 class="b-w3ltxt text-capitalize mt-md-2">Senior Researcher?</h4>
+                      <p class="w3ls_pvt-title my-3">Are you a senior researcher or professional or graduate looking for mentees, meet-up provides that bridge</p>
+                      <a href="#about" class="btn btn-banner my-3">Read More</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="navigation">
+                <div>
+                  <label for="slides_1"></label>
+                  <label for="slides_2"></label>
+                  <label for="slides_3"></label>
+                </div>
+              </div>
+            </div>
+            <!-- //banner slider-->
+          </div>
+          <div class="col-lg-5 col-md-8 px-lg-3 px-0">
+            <div class="banner-form-w3 ml-lg-5">
+              <div class="padding">
+                <!-- banner form -->
+                <form (submit)="register()" #f="ngForm">
+                  <h5 class="mb-2">Register to Meet-up Careers</h5>
+                  <div class="form-style-w3ls">
+                    <input 
+                    placeholder="First Name" 
+                    name="firstname" 
+                    type="text"
+                    [(ngModel)]="credentials.firstname"
+                    required="">
+
+                    <input 
+                    placeholder="Last Name" 
+                    name="lastname"
+                    type="text"
+                    required=""
+                    [(ngModel)]="credentials.lastname">
+
+                    <input placeholder="Email" 
+                    name="email" 
+                    type="email" 
+                    required=""
+                    [(ngModel)]="credentials.email">
+
+                    <input placeholder="Choose Password" 
+                    name="password" 
+                    type="password" 
+                    required=""
+                    [(ngModel)]="credentials.password">
+
+                    <input 
+                    placeholder="Mobile Number"
+                    name="mobile"
+                    type="text"
+                    required=""
+                    [(ngModel)]="credentials.mobile">
+                    <label for="">Mentor or Mentee</label>
+                    <select
+                    name="role"
+                    [(ngModel)]="credentials.role"
+                    >
+                      <option value="mentor">Mentor</option>
+                      <option value="mentee">Mentee</option>
+                    </select>
+
+                    <button
+                     Class="btn"
+                     type = "submit"
+                     [disabled]="!f.valid"
+                     > Get Started</button>
+                    <span>By registering, you agree to our <a href="/">Terms & Conditions.</a></span>
+                  </div>
+                </form>
+                <!-- //banner form -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //banner -->

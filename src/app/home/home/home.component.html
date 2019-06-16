@@ -1,0 +1,236 @@
+<header>
+    <div class="top-head container">
+      <div class="ml-auto text-right right-p">
+        <ul>
+          <li class="mr-3">
+            <a *ngIf="!auth.isLoggedIn()" routerLink="/login"><span class="fa fa-sign-in"></span> LOG IN</a>
+          <li>
+          <!-- <li class="nav-item"
+          *ngIf="!auth.isLoggedIn()">
+            <a class="nav-link" routerLink="/register">SIGN UP</a>
+          </li> -->
+    
+          <li class="nav-item"
+          *ngIf="auth.isLoggedIn()">
+            <a class="nav-link" routerLink="/profile">
+            Hi, {{auth.getUserDetails()?.firstname}}
+          </a>
+          </li>
+    
+          <li class="nav-item"
+          *ngIf="auth.isLoggedIn()">
+            <a class="nav-link" 
+            routerLink=""
+            (click)="auth.logOut()">SIGN OUT</a>
+          </li>
+          <li>
+            <span class="fa fa-envelope-open"></span> <a routerLink="mailto:info@example.com">info@meetupcareers.com</a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <!-- nav -->
+      <nav class="py-3 d-lg-flex">
+        <div id="logo">
+          <h1> <a routerLink="/"><img src="/assets/images/favicon.png" alt=""> MeetupCareers </a></h1>
+        </div>
+        <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+        <input type="checkbox" id="drop" />
+        <ul class="menu ml-auto mt-1">
+          <li class="active"><a routerLink="/login">Home</a></li>
+          <li class=""><a routerLink="/mentor">Mentors</a></li>
+          <li class=""><a routerLink="/mentee">Mentees</a></li>
+          <!-- <li class=""><a href="#stats">Research Data</a></li>
+          <li class=""><a href="#testi">Volunteers</a></li> -->
+        </ul>
+      </nav>
+      <!-- //nav -->
+    </div>
+  </header>
+  
+  <app-banner></app-banner>
+
+  <section class="banner-bottom py-5" id="about">
+      <div class="container py-lg-5">
+        <h2 class="heading mb-sm-5 mb-4"> Build Your Career With The Right Mentorship</h2>
+        <div class="row bottom-grids">
+          <div class="col-md-3 col-sm-6">
+            <div class="three-grids-w3pvt-1 d-flex text-right">
+              <div class="text-effect-wthree midd-text-w3ls p-3 w-100">
+                <h5 class="text-capitalize text-bl font-weight-bold">Virtual Meeting</h5>
+                <p>Completely Remote</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 mt-sm-0 mt-4">
+            <div class="three-grids-w3pvt-2 d-flex text-right">
+              <div class="text-effect-wthree midd-text-w3ls p-3 w-100">
+                <h5 class="text-capitalize text-bl font-weight-bold">Flexible Mentorship</h5>
+                <p>Easy Search</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 mt-md-0 mt-4">
+            <div class="three-grids-w3pvt-3 d-flex text-right">
+              <div class="text-effect-wthree midd-text-w3ls p-3 w-100">
+                <h5 class="text-capitalize text-bl font-weight-bold">Easy Learning</h5>
+                <p>Flexible Scheduling</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 mt-md-0 mt-4">
+            <div class="three-grids-w3pvt-4 d-flex text-right">
+              <div class="text-effect-wthree midd-text-w3ls p-3 w-100">
+                <h5 class="text-capitalize text-bl font-weight-bold">Collaboration</h5>
+                <p>Career Networking</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <p class="mt-4">The objective is to support graduate and early career or newly academics in their professional and personal development by 
+              connecting them with more experienced individuals who can share knowledge, advise, guide, coach and support.</p>
+          </div>
+          <div class="col-lg-1 col-sm-4 col-5 ser-img">
+            <img src="/assets/images/s1.png" class="mt-4" alt="">
+            <img src="/assets/images/s2.png" class="mt-4" alt="">
+          </div>
+          <div class="col-lg-1 col-sm-4 col-5 ser-img">
+            <img src="/assets/images/s3.png" class="mt-4" alt="">
+            <img src="/assets/images/s5.png" class="mt-4" alt="">
+          </div>
+          <div class="col-lg-5">
+            <p class="mt-4"> The objective is to support graduate and early career or newly academics in their professional and personal development
+               by connecting them with more experienced individuals who can share knowledge, advise, guide, coach and support. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services py-1" id="services">
+        <div class="container">
+          <h3 class="heading mb-5">How it Works</h3>
+          <div class="row ml-sm-5">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                    <img src="/assets/images/s1.png" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Register (Mentee)</h4>
+                    <p>Complete your profile for complete access</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                    <img src="/assets/images/s2.png" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Search for Mentors</h4>
+                    <p>Wait for mentorship request acceptance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                    <img src="/assets/images/s3.png" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Start Mentorship</h4>
+                    <p>Schedule meetings and ask questions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                    <img src="/assets/images/s4.png" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Register (Mentor)</h4>
+                    <p>Complete your profile for complete access</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                    <img src="/assets/images/s5.png" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Accept Mentees</h4>
+                    <p>Accept mentorship requests from mentees</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                    <img src="/assets/images/s6.png" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Start Mentorship</h4>
+                    <p>Schedule meetings and coach mentees</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <footer>
+          <div class="footer-layer py-sm-5 pt-5 pb-3">
+            <div class="container py-md-3">
+              <div class="footer-grid_section text-center">
+                <div class="footer-title mb-3">
+                  <a href="#"><img src="/assets/images/s2.png" alt=""> Meet-up Careers</a>
+                </div>
+                <div class="footer-text">
+                  <p>The objective is to support graduate and early career or newly academics in their professional and personal development
+                     by connecting them with more experienced individuals who can share knowledge, advise, guide, coach and support</p>
+                </div>
+                <ul class="social_section_1info">
+                  <li class="mb-2 facebook"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                  <li class="mb-2 twitter"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                  <li class="google"><a href="#"><span class="fa fa-google-plus"></span></a></li>
+                  <li class="linkedin"><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                  <li class="pinterest"><a href="#"><span class="fa fa-pinterest"></span></a></li>
+                  <li class="vimeo"><a href="#"><span class="fa fa-vimeo"></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+
+        <section class="copyright">
+            <div class="container py-4">
+              <div class="row bottom">
+                <ul class="col-lg-6 links p-0">
+                  <li><a href="#" class="">About </a></li>
+                  <li><a href="#" class="">Support </a></li>
+                </ul>
+                <div class="col-lg-6 copy-right p-0">
+                  <p class="">© 2019 MeetupCareers. All rights reserved
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+  

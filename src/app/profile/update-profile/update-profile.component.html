@@ -1,0 +1,118 @@
+<div>
+
+    <div class="container-fluid profile-container">
+        <div class="row dashboard-content offset-md-2">
+          <div class="col-lg-9 left-content connections ">
+            <div class="update-profile-header">
+              
+                <h4 class="mb-2">Let's Update your Profile....</h4>
+
+                <!-- <img [src]="imageSrc"> -->
+
+                <!-- {{serverService.getProfileImage(auth.getUserDetails()?.id)}}
+                <img src="{{serverService.getProfileImage(auth.getUserDetails()?.id)}}" alt="blush" srcset=""> -->
+              <small>Mentors and Mentees like to interact with complete profiles</small>
+            </div>
+            <mat-divider></mat-divider>
+          
+            <!-- <input type="file" formControlName="photo" ng2FileSelect [uploader]="uploader" />
+
+            <button type="button" class="btn btn-success btn-s" 
+              (click)="uploader.uploadAll()" 
+              [disabled]="!uploader.getNotUploadedItems().length" >
+                  Upload an Image
+            </button> -->
+
+            <form [formGroup]="updateForm">
+                <mat-card>
+                    <div class="profile-content p-4">
+                       <mat-form-field>
+                           <input matInput placeholder="Firstname"
+                           formControlName="firstname"                             
+                           #firstname>
+                       </mat-form-field>
+
+
+                       <mat-form-field>
+                           <input matInput placeholder="Lastname"
+                           formControlName="lastname"  
+                           #lastname>
+                       </mat-form-field>
+                       <mat-form-field>
+                           <input matInput placeholder="Email"
+                           formControlName="email"  
+                           #email>
+                       </mat-form-field>
+                       <mat-form-field>
+                           <input matInput placeholder="Mobile"
+                           formControlName="mobile"  
+                           #mobile>
+                       </mat-form-field>
+                       <mat-form-field>
+                           <input matInput placeholder="Field"
+                           formControlName="field"  
+                           #field>
+                       </mat-form-field>
+       
+                       <mat-form-field>
+                           <mat-label>Category</mat-label>
+                           <mat-select 
+                           formControlName="category"  
+                           #category>
+                             <mat-option value="Professional">Professional</mat-option>
+                             <mat-option value="Academic">Academic</mat-option>
+                           </mat-select>
+                         </mat-form-field>
+
+                         <mat-form-field>
+                            <mat-label>Country</mat-label>
+                            <mat-select 
+                            formControlName="country"  
+                            #country>
+                              <mat-option value="Nigeria">Nigeria</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+       
+                       <mat-form-field>
+                           <input matInput placeholder="Qualifications"
+                           formControlName="qualifications"  
+                           #qualifications>
+                         <mat-hint>e.g BSc, Phd, e.t.c</mat-hint>
+       
+                       </mat-form-field>
+                       <mat-form-field>
+                           <input matInput placeholder="Interests"
+                           formControlName="interests"  
+                           #interests>
+                       <mat-hint>e.g Research, innovations e.t.c</mat-hint>
+                       </mat-form-field>
+                     <br>
+                     <br>
+
+                       <button
+                       type="submit" 
+                       (click)="updateProfile(firstname.value, 
+                       lastname.value, mobile.value, email.value, field.value, qualifications.value,
+                       category.value, interests.value, country.value)"
+                       [disabled]="updateForm.pristine || updateForm.invalid" 
+                       mat-raised-button color="warn">Update Profile</button>
+
+                       
+                     </div>
+       
+                </mat-card>
+
+            </form>
+              
+
+
+        
+            
+
+
+
+
+              
+          </div>
+        </div>
+    </div>

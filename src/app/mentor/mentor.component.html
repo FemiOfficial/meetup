@@ -1,0 +1,84 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+      <div class="col-md-12 col-offset-2">
+          <form (submit)="findMentee()"  #f="ngForm">
+              <mat-form-field>
+                  <mat-label>Search By Name</mat-label>
+                  <input matInput
+                  name="name"  
+                  [(ngModel)]="searchBy.name"
+                  >
+              </mat-form-field>
+
+              <mat-form-field>
+                  <mat-select placeholder="Category"
+                  name="category"  
+                  [(ngModel)]="searchBy.category">
+                    <mat-option value="Professional">Professional</mat-option>
+                    <mat-option value="Academia">Academia</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select placeholder="Field"
+                    name="field"  
+                    [(ngModel)]="searchBy.field">
+                      <mat-option value="Law">Law</mat-option>
+                      <mat-option value="Computer Science">Computer Science</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+              <button mat-raised-button color="primary"
+              type="submit"
+              [disabled]="searchBy.name=='' && searchBy.category=='' && searchBy.field== ''"
+              >Search</button>
+          </form>
+      </div>
+      
+  </div>
+
+</div>
+
+<mat-divider></mat-divider>
+<div class="container-fluid">
+            
+    <section class="team pt-3" id="team">
+            <div class="container">
+                <h3 class="heading mb-sm-2 mb-2">Mentors</h3>
+                <hr>
+                <div class="row content" *ngIf="mentees?.length == 0">
+                      <p>No Mentee available <a routerLink="/profile">back</a></p>
+                </div>
+                
+                    <div class="row content"  *ngIf="mentees?.length != 0">
+                        <div class="team-grid col-md-3 col-sm-6 mb-5 "  *ngFor="let mentee of mentees">
+                            <img src="/assets/images/icon.png" class="" alt="" />
+                        <div class="team-info text-center">
+                            <h3 class="e">{{ mentee.firstname}} {{ mentee.lastname}}  <small style="font-size:13px;"> {{ mentee.qualifications}}</small></h3>
+                            <span class="">{{ mentee.field}}</span> |
+                            <span class="">{{ mentee.category}}</span> |
+                           <a routerLink="/bio/{{mentee.id}}">View Bio</a>
+                        </div>
+                    </div>
+                    </div>  
+            </div>
+    </section>
+
+</div>
+
+
+<section class="copyright">
+    <div class="container py-4">
+        <div class="row bottom">
+            <ul class="col-lg-6 links p-0">
+                <li><a href="#" class="">About </a></li>
+                <li><a href="#" class="">Support </a></li>
+            </ul>
+            <div class="col-lg-6 copy-right p-0">
+                <p class="">© 2019 MeetupCareers. All rights reserved
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

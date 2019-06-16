@@ -1,0 +1,97 @@
+<mat-drawer-container class="container-fluid">
+    <mat-drawer #drawer class="shadow" mode="side" opened>
+  
+        <div class="user-profile">
+
+           <img src="/assets/images/icon.png" alt="">
+           <div class="user-profile-content">
+                <h3>
+                    {{ details?.firstname }} {{ details?.lastname }} <span class="online">{{ details?.loggedIn}}</span>
+                </h3>
+                <h5>{{ details?.field }}</h5>
+                <h5 class="category">{{ details?.role }}</h5>
+           </div>
+        </div>
+      
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a routerLink="/profile/update_profile" class="nav-link active">
+                    Update Profile
+                </a>
+            </li>
+
+             <li class="nav-item"
+             *ngIf="details?.role == 'mentor'">
+                <a routerLink="/mentee" class="nav-link active">
+                    Find Mentee
+                </a>
+            </li>
+
+            <li class="nav-item"
+            *ngIf="details?.role == 'mentee'">
+               <a routerLink="/mentor" class="nav-link active">
+                   Find Mentor
+               </a>
+           </li>
+  
+            <li class="nav-item">
+              <a routerLink="/mentee" class="nav-link active">
+                 Mentees
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/profile/" class="nav-link">
+                 Messages
+              </a>
+            </li>    
+          </ul>
+      
+    </mat-drawer>
+    <mat-drawer-content>
+            <nav class="py-3 d-lg-flex navbar" id="home">
+                    <i class="fa fa-bars" (click)="drawer.toggle()" style="padding-right: 15px;"></i>
+                    <div id="logo">
+                        <h1><a routerLink="/"><img src="/assets/images/favicon.png" alt=""> MeetupCareers</a></h1>
+                    </div>
+                    <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+                    <input type="checkbox" id="drop" />
+                    <ul class="menu ml-auto mt-1">
+                    
+                        <li class="nav-item"
+                        *ngIf="!auth.isLoggedIn()">
+                         <a class="nav-link" routerLink="/login">Sign in</a>
+                        </li>
+                  
+                        <li class="nav-item"
+                        *ngIf="!auth.isLoggedIn()">
+                         <a class="nav-link" routerLink="/register">Sign up</a>
+                        </li>
+                  
+                        <li class="nav-item"
+                        *ngIf="auth.isLoggedIn()">
+                         <a class="nav-link" routerLink="/profile">
+                          Hi, {{auth.getUserDetails()?.firstname}}
+                        </a>
+                        </li>
+                  
+                        <li class="nav-item">
+                         <a class="nav-link" routerLink="/mentee">Mentees</a>
+                        </li>      
+                        
+                        <li class="nav-item">
+                         <a class="nav-link" routerLink="/mentor">Mentors</a>
+                        </li>
+                  
+                        <li class="nav-item"
+                        *ngIf="auth.isLoggedIn()">
+                         <a class="nav-link" 
+                          routerLink=""
+                          (click)="auth.logOut()">Sign Out</a>
+                        </li>
+                    </ul>
+                  
+                  </nav>
+        <!-- <app-header></app-header> -->
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

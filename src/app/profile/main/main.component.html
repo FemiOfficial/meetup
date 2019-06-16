@@ -1,0 +1,252 @@
+<!-- <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="First"> 
+       -->
+    <div>
+      <div class="container-fluid profile-container">
+        <div class="row dashboard-content ml-2">
+
+            <div class="col-lg-7 left-content mb-2">
+                <div class="connections">
+                  <h4 class="mb-2" *ngIf="details?.role == 'mentor'">Mentees</h4>
+                  <h4 class="mb-2" *ngIf="details?.role == 'mentee'">Mentors</h4>
+
+                  <div *ngIf="relations?.length == 0">
+                      <small *ngIf="details?.role == 'mentor'">No Mentee added yet, <a routerLink="/mentee">find one</a></small>
+                      <small *ngIf="details?.role == 'mentee'">No Mentor added yet, <a routerLink="/mentor">find one</a></small>
+                  </div>
+                  
+                  <div class="connections-list mb-3" *ngIf="relations?.length != 0">
+                    <div class="card mb-2">
+
+                      
+                      <div class="card-body" *ngFor="let relation of relations">
+                        <div class="card-image mr-3">
+                          <img src="/assets/images/icon.png" />
+                        </div>
+                        <div class="card-info">
+                          <div>
+                            {{relation.user.firstname}} {{ relation.user.lastname}} <i>{{ relation.user.qualifications}}</i>
+                          </div>
+                          <div>
+                            Category: {{relation.user.category}}
+                          </div>
+                          <div>
+                              Field: {{relation.user.field}}
+                          </div>
+          
+                        </div>
+          
+                        <div class="ml-auto">
+                          <a href="#">View Bio</a>
+                          <span class="{{relation.user.loggedIn}}"> {{relation.user.loggedIn}}</span>
+                          <div>
+                              <button mat-raised-button color="primary"
+                            (click)="openDialog(relation?.user.id, relation?.user.firstname, relation?.user.lastname)">
+                            <i class="fa fa-send"></i> Send Message</button>
+          
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+          
+                  </div>
+          
+                </div>
+            </div>
+
+
+            <div class="col-lg-5 mt-3">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h4>Pending Request</h4>
+                        </mat-panel-title>
+                        <mat-panel-description *ngIf="pendingRequests?.length != 0">
+                            {{ pendingRequests?.length }} pending requests
+                          </mat-panel-description>
+                      </mat-expansion-panel-header>
+                  
+                      <div *ngIf="pendingRequests?.length == 0">
+                          <small>No Pending Request</small>
+                      </div>
+
+                      <div class="connections-list mb-3" *ngIf="pendingRequests?.length != 0">
+                          <div class="card mb-2">
+      
+                            
+                            <div class="card-body" *ngFor="let pending of pendingRequests">
+                              <div class="card-image mr-3">
+                                <img src="/assets/images/icon.png" />
+                              </div>
+                              <div class="card-info">
+                                <div>
+                                  {{pending.user.firstname}} {{ pending.user.lastname}} <i>{{ pending.user.qualifications}}</i>
+                                </div>
+                                <div>
+                                  Category: {{pending.user.category}}
+                                </div>
+                                <div>
+                                    Field: {{pending.user.field}}
+                                </div>
+                
+                              </div>
+                
+                              <div class="ml-auto">
+                                <a routerLink="/bio/{{pending.user.id}}">View Bio</a>
+                                <span class="{{pending.user.loggedIn}}"> {{pending.user.loggedIn}}</span>
+                                <div>
+                                  <button mat-raised-button color="white"
+                                  (click)="acceptRequest(pending.user.id)">
+                                  <i class="fa fa-check"></i></button>
+
+                                  <button mat-raised-button color="warn"
+                                  (click)="declineRequest(pending.user.id)">
+                                  <i class="fa fa-close"></i></button>
+                
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                
+                      </div>
+
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                              <h4>Messages</h4>
+                          </mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <div *ngIf="messages?.length == 0">
+                            <small>No Messages</small>
+                        </div>
+  
+                        <div class="connections-list mb-3" *ngIf="messages?.length != 0">
+                            <div class="card mb-2">
+        
+                              
+                              <div class="card-body" *ngFor="let message of messages">
+                  
+                                <div class="card-info">
+                                  <div>
+                                    {{message.user.firstname}}, {{message.user.lastname.substring(0,1)}}<br>
+                                  </div>
+                                  <div class="message">
+                                      {{message.message }}
+                                  </div>
+                  
+                                </div>
+                  
+                                <div class="ml-auto">
+                                  <a routerLink="/bio/{{message.user.id}}">View Bio</a>
+                                  <span class="{{message.user.loggedIn}}"> {{message.user.loggedIn}}</span>
+               
+                                </div>
+                               
+                              </div>
+                              
+                            </div>
+                  
+                        </div>
+                    
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- </mat-tab>
+    <mat-tab label="Second"> 
+
+
+        <div>
+            <div class="container-fluid profile-container">
+              <div class="row dashboard-content">
+
+                  <div class="col-lg-4 right-content mb-2">
+                      <div class="profile mb-3">
+                
+                        <div class="alert alert-success alert-dismissable">
+                          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                          <small>Your Profile is 30% Complete, complete it to get a badge!</small>
+                        </div>
+                
+                
+                
+                        <div>
+                          <img src="images/profile_2.png" />
+                          <div class="profile-bio">
+                            <div>
+                              <small>No Bio uploaded yet</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="profile-info">
+                          <div class="form-group">
+                            <label>Firstname</label>
+                            <input type="text" value="{{details?.firstname}}" readonly />
+                
+                          </div>
+                          <div class="form-group">
+                            <label>Lastname</label>
+                            <input type="text" value="{{details?.lastname}}" readonly />
+                          </div>
+                          <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" value="{{details?.email}}" readonly />
+                          </div>
+                          <div class="form-group">
+                            <label>Mobile</label>
+                            <input type="text" value="{{details?.mobile}}" readonly />
+                          </div>
+                          <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" value="N/A" readonly />
+                          </div>
+                          <div class="form-group">
+                            <label>Field</label>
+                            <input type="text" value="N/A" readonly />
+                          </div>
+                          <div class="form-group">
+                            <label>Category</label>
+                            <input type="text" value="N/A" readonly />
+                          </div>
+                          <div style="text-align: center;">
+                            <a class="btn btn-danger ml-auto" routerLink="/profile/update_profile"><i class=" fa fa-id-card"></i> Update Profile</a>
+                          </div>
+                        </div>
+                
+                
+                      </div>
+                
+                      <div class="pending-request">
+                        <h4>Pending Request</h4>
+                        <small>No Pending Request</small>
+                      </div>
+                    </div>
+
+
+              </div>
+            </div>
+        </div>
+
+
+    </mat-tab>
+  </mat-tab-group> -->
+
+      
+      
+      
+      
+      
+      
+      
